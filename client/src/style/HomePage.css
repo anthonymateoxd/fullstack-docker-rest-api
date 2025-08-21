@@ -1,0 +1,82 @@
+/* Fondo celeste claro con degradado */
+body {
+  background: linear-gradient(to right, #e0f7fa, #ffffff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor centrado */
+.container {
+  background-color: #ffffffcc; /* blanco translúcido */
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  color: #007b9e;
+  margin-bottom: 20px;
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+}
+
+/* Encabezados */
+thead tr {
+  background-color: #b2ebf2; /* celeste claro */
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Hover */
+tbody tr:hover {
+  background-color: #e0f7fa;
+}
+
+/* Centrado de texto para ID */
+td.text-center {
+  text-align: center;
+}
+.btn-edit {
+  background-color: #4fc3f7;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-edit:hover {
+  background-color: #039be5;
+}
+
+.btn-delete {
+  background-color: #ef5350;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f;
+}

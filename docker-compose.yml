@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./client # Ruta a la carpeta del frontend
+      dockerfile: Dockerfile
+    container_name: frontend-container
+    ports:
+      - '8080:80' # Mapea el puerto 80 del host al 80 del contenedor
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./src # Ruta a la carpeta del backend
+      dockerfile: Dockerfile
+    container_name: backend-container
+    ports:
+      - '4000:4000' # Mapea el puerto 4000 del host al 4000 del contenedor
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=mysql
+      - DB_USER=guest
+      - DB_PASSWORD=guest
+      - DB_NAME=app
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+
+  mysql:
+    image: mysql:5.7.33
+    restart: always
+    container_name: mysql1
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: guest
+      MYSQL_USER: guest
+      MYSQL_PASSWORD: guest
+      MYSQL_DATABASE: app
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+volumes:
+  mysql_data:
+
+networks:
+  app-network:
+    driver: bridge
